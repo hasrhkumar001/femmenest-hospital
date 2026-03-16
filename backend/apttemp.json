@@ -1,0 +1,19 @@
+[dotenv@17.3.1] injecting env (9) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+MongoDB Connected: ac-tnb4vdx-shard-00-00.bu3wpal.mongodb.net
+[
+  {
+    "_id": "69b8364374b015c291cdf45c",
+    "user": null,
+    "department": "General",
+    "doctor": "anita-j",
+    "patientName": "Harsh Kumar",
+    "patientEmail": "testcliennt@yopmail.com",
+    "patientPhone": "1236547890",
+    "appointmentDate": "2026-03-17",
+    "appointmentTime": "03:00 PM",
+    "status": "pending",
+    "createdAt": "2026-03-16T16:56:35.054Z",
+    "updatedAt": "2026-03-16T16:56:35.054Z",
+    "__v": 0
+  }
+]
