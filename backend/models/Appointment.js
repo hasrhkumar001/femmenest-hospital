@@ -11,6 +11,11 @@ const appointmentSchema = mongoose.Schema(
             type: String,
             required: true,
         },
+        specialist: {
+            type: String,
+            enum: ['Surgery & Radiology', 'Neurology', 'Angiography', 'Children Care', 'Orthopedics'],
+            required: true,
+        },
         doctor: {
             type: String, // Or ObjectId ref to Doctor model if you expand
             required: true,

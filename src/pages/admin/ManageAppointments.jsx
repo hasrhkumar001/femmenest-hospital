@@ -26,7 +26,7 @@ function ManageAppointments() {
 
     const handleUpdateStatus = async (id, status) => {
         try {
-            await axios.put(`http://localhost:5000/api/admin/appointments/${id}`, 
+            await axios.put(`http://localhost:5000/api/admin/appointments/${id}`,
                 { status },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -36,7 +36,7 @@ function ManageAppointments() {
             alert("Failed to update status");
         }
     };
-    
+
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this appointment?')) {
             try {
@@ -52,7 +52,7 @@ function ManageAppointments() {
     };
 
     const getStatusColor = (status) => {
-        switch(status) {
+        switch (status) {
             case 'confirmed': return 'var(--purple)';
             case 'completed': return 'var(--blue)';
             case 'cancelled': return 'var(--hot-pink)';
@@ -73,7 +73,8 @@ function ManageAppointments() {
                         <thead>
                             <tr style={{ borderBottom: '2px solid var(--grey)', color: 'var(--navy)' }}>
                                 <th style={{ padding: '15px 10px' }}>Patient Details</th>
-                                <th style={{ padding: '15px 10px' }}>Date & Time</th>
+                                <th style={{ padding: '15px 10px' }}>Date &amp; Time</th>
+                                <th style={{ padding: '15px 10px' }}>Specialist</th>
                                 <th style={{ padding: '15px 10px' }}>Doctor</th>
                                 <th style={{ padding: '15px 10px' }}>Status</th>
                                 <th style={{ padding: '15px 10px' }}>Actions</th>
@@ -82,7 +83,7 @@ function ManageAppointments() {
                         <tbody>
                             {appointments.length === 0 ? (
                                 <tr>
-                                    <td colSpan="5" style={{ padding: '20px', textAlign: 'center', color: 'var(--slate)' }}>No appointments found.</td>
+                                    <td colSpan="6" style={{ padding: '20px', textAlign: 'center', color: 'var(--slate)' }}>No appointments found.</td>
                                 </tr>
                             ) : appointments.map(apt => (
                                 <tr key={apt._id} style={{ borderBottom: '1px solid var(--off-white)' }}>
@@ -95,14 +96,15 @@ function ManageAppointments() {
                                         <div style={{ fontWeight: '500' }}>{new Date(apt.appointmentDate).toLocaleDateString()}</div>
                                         <div style={{ color: 'var(--coral)', fontSize: '0.9rem' }}><i className="far fa-clock"></i> {apt.appointmentTime}</div>
                                     </td>
+                                    <td style={{ padding: '15px 10px', fontWeight: '500' }}>{apt.specialist}</td>
                                     <td style={{ padding: '15px 10px', fontWeight: '500' }}>{apt.doctor}</td>
                                     <td style={{ padding: '15px 10px' }}>
-                                        <select 
-                                            value={apt.status} 
+                                        <select
+                                            value={apt.status}
                                             onChange={(e) => handleUpdateStatus(apt._id, e.target.value)}
-                                            style={{ 
-                                                padding: '6px 10px', 
-                                                borderRadius: '20px', 
+                                            style={{
+                                                padding: '6px 10px',
+                                                borderRadius: '20px',
                                                 border: '1px solid var(--grey)',
                                                 background: 'transparent',
                                                 color: getStatusColor(apt.status),

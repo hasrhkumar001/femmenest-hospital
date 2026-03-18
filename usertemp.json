@@ -1,0 +1,24 @@
+[dotenv@17.3.1] injecting env (9) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+MongoDB Connected: ac-tnb4vdx-shard-00-00.bu3wpal.mongodb.net
+[
+  {
+    "_id": "69b6f2317f8477396231de1b",
+    "name": "Harsh Kumar",
+    "email": "harshtest@yopmail.com",
+    "password": "$2b$10$o6jQziMBTQIk.8Un6Bt1YuCOsPHjYrvlSRGMI28twx7tiQdHcpfXK",
+    "role": "user",
+    "createdAt": "2026-03-15T17:53:53.625Z",
+    "updatedAt": "2026-03-15T17:53:53.625Z",
+    "__v": 0
+  },
+  {
+    "_id": "69b6f3ad7f8477396231de21",
+    "name": "Admin",
+    "email": "admin@femmenest.com",
+    "password": "$2b$10$hDwzmX6oMAg68KA68RPGQ.EcpPAbwftraBeY0OX9EdKB9pQ1HjlY6",
+    "role": "admin",
+    "createdAt": "2026-03-15T18:00:13.166Z",
+    "updatedAt": "2026-03-15T18:00:13.166Z",
+    "__v": 0
+  }
+]

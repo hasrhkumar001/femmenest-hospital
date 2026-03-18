@@ -8,6 +8,7 @@ function AppointmentForm() {
         patientEmail: '',
         appointmentDate: '',
         department: 'General', // Default or handled differently if there was a dept dropdown
+        specialist: '',
         doctor: ''
     });
     const [status, setStatus] = useState({ loading: false, success: false, error: '' });
@@ -44,7 +45,7 @@ function AppointmentForm() {
 
             setStatus({ loading: false, success: true, error: '' });
             // Reset form
-            setFormData({ patientName: '', patientPhone: '', patientEmail: '', appointmentDate: '', department: 'General', doctor: '' });
+            setFormData({ patientName: '', patientPhone: '', patientEmail: '', appointmentDate: '', department: 'General', specialist: '', doctor: '' });
             setSelectedTime('');
         } catch (err) {
             setStatus({ loading: false, success: false, error: err.message });
@@ -86,6 +87,18 @@ function AppointmentForm() {
                                 <label>Email Address</label>
                                 <input type="email" name="patientEmail" value={formData.patientEmail} onChange={handleChange} placeholder="Enter your email (optional)" />
                                 <i className="fas fa-envelope"></i>
+                            </div>
+                            <div className="form-group">
+                                <label>Select Specialist <span className="required">*</span></label>
+                                <select name="specialist" value={formData.specialist} onChange={handleChange} required>
+                                    <option value="" disabled>Select Specialist</option>
+                                    <option value="Surgery & Radiology">Surgery &amp; Radiology</option>
+                                    <option value="Neurology">Neurology</option>
+                                    <option value="Angiography">Angiography</option>
+                                    <option value="Children Care">Children Care</option>
+                                    <option value="Orthopedics">Orthopedics</option>
+                                </select>
+                                <i className="fas fa-user-md"></i>
                             </div>
                             <div className="form-row">
                                 <div className="form-group">
